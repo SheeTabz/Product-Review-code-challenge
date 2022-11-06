@@ -8,12 +8,14 @@ class Product < ActiveRecord::Base
 
     def print_all_reviews
         reviews = Review.all.filter do|review|
-            data = (review.product_id==self.id)
-            data
+           if review.product_id==self.id
+            puts "Review for #{self.name} by #{insert user name}: #{review.star_rating}. #{review.comment}"
+           end
+          
         end
     end
 
-    def average_raing
-        self.reviews
+    def average_rating
+        self.reviews.average(:star_rating).to_f
     end
 end

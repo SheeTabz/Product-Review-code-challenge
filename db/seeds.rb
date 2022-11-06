@@ -2,8 +2,8 @@
 # so you can run the seed file multiple times without having duplicate entries in your database
 # require 'pry'
 puts "Deleting old data..."
-Product.destroy_all
-User.destroy_all
+# Product.destroy_all
+# User.destroy_all
 
 puts "Creating users..."
 user1 = User.create(name: Faker::Name.name)
@@ -25,11 +25,11 @@ puts "Creating reviews..."
 # * and a review belongs to an user.                              *
 # *****************************************************************
 # Create Reviews Here
-review1 = Review.create(star_rating: 1, comment: "Amazing product", product_id: rand(1..5), user_id: rand(1..2))
-review2 = Review.create(star_rating: 4, comment: "I love the product", product_id: rand(1..5), user_id: rand(1..2))
-review3 = Review.create(star_rating: 3, comment: "Looking forward to shop", product_id: rand(1..5), user_id: rand(1..2))
-review4 = Review.create(star_rating: 5, comment: "Product is quality", product_id: rand(1..5), user_id: rand(1..2))
+review1 = Review.create(star_rating: 1, comment: "Amazing product", product_id: product1.id, user_id: user1.id)
+review2 = Review.create(star_rating: 4, comment: "I love the product", product_id: product5.id, user_id: user1.id)
+review3 = Review.create(star_rating: 3, comment: "Looking forward to shop", product_id:product1.id, user_id: user2.id)
+review4 = Review.create(star_rating: 5, comment: "Product is quality", product_id: product4.id, user_id: user1.id)
 
-
+user1.remove_reviews(product5)
 
 puts "Seeding done!"
