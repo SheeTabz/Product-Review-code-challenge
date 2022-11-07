@@ -139,7 +139,7 @@ products for the first user in the database based on your seed data; and
 #### Review
 
 - `Review#print_review`
-  - should `puts` to the terminal a string formatted as follows: `Review for {insert product name} by {insert user name}: {insert review star_rating}. {insert review comment}`
+  - should `puts` to the terminal a string formatted as follows: `Review for {insert product name} by {insert user name}: {insert review star_rating}. {insert revie comment}`
 
 #### Product
 
